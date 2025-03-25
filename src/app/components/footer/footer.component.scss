@@ -1,0 +1,90 @@
+@use '../../../styles/variables' as *;
+@use 'sass:color';
+
+
+.footer {
+  background-color: $color-background;
+  padding: $spacing-unit * 4 0;
+  font-family: $font-primary;
+  color: $color-black;
+  border-top: 1px solid $color-gray-light;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-unit * 2;
+  }
+
+  &-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: $spacing-unit * 3;
+    }
+  }
+
+  &-logo img {
+    width: 150px;
+  }
+
+  &-links {
+    h4 {
+      font-size: $font-size-lg;
+      margin-bottom: $spacing-unit * 2;
+      color: $color-accent;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: $spacing-unit;
+
+        a {
+          text-decoration: none;
+          color: $color-black;
+          transition: color 0.2s;
+
+          &:hover {
+            color: $color-accent;
+          }
+        }
+      }
+    }
+  }
+
+  &-social {
+    h4 {
+      font-size: $font-size-lg;
+      margin-bottom: $spacing-unit * 2;
+      color: $color-accent;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: $spacing-unit * 2;
+
+      li a {
+        color: $color-primary;
+        transition: color 0.3s;
+
+        &:hover {
+          color: color.adjust($color-primary, $lightness: -10%);
+        }
+      }
+    }
+  }
+
+  &-bottom {
+    margin-top: $spacing-unit * 3;
+    text-align: center;
+    font-size: $font-size-sm;
+    color: $color-gray-dark;
+  }
+}

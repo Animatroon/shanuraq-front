@@ -1,0 +1,80 @@
+@use '../../../styles/variables' as *;
+
+.header {
+  background-color: $color-accent;
+  font-family: $font-primary;
+  padding: $spacing-unit * 2.5 0; 
+  color: $color-white;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-unit * 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: $spacing-unit * 2;
+    }
+  }
+
+  .nav-logo img {
+    height: 48px;
+    filter: brightness(0) invert(1);
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: $spacing-unit * 4;
+
+    a {
+      color: rgba($color-white, 0.9);
+      font-weight: 600;
+      font-size: $font-size-lg; 
+      transition: color 0.3s;
+
+      &:hover {
+        color: $color-button;
+      }
+    }
+
+    @media (max-width: 768px) {
+      gap: $spacing-unit * 3;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+
+  .nav-actions {
+    display: flex;
+    gap: $spacing-unit * 1.5; 
+
+    .lang-switch {
+      border: 1px solid rgba($color-white, 0.6);
+      background-color: transparent;
+      color: rgba($color-white, 0.9);
+      border-radius: $border-radius;
+      font-size: $font-size-base; 
+      padding: ($spacing-unit * 0.75) ($spacing-unit * 2);
+      cursor: pointer;
+      transition: 0.3s ease;
+
+      &:hover {
+        background-color: rgba($color-white, 0.2);
+        color: $color-white;
+      }
+    }
+
+    .auth-btn {
+      @include button-primary;
+      font-size: $font-size-base;
+      padding: $spacing-unit ($spacing-unit * 2);
+    }
+
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
+  }
+}
