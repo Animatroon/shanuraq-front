@@ -1,0 +1,71 @@
+@use 'sass:color';
+@use '../../../styles/variables' as *;
+
+.create-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 24px;
+    color: $color-primary;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 16px;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+  }
+
+  .submit-btn {
+    padding: 12px;
+    background-color: $color-primary;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background-color: color.mix(white, $color-primary, 5%);
+    }
+  }
+}

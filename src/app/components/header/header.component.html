@@ -10,6 +10,8 @@
       <a routerLink="/favorites">Избранное</a>
     </nav>
 
+    <li *ngIf="isLandlord"><a routerLink="/create">Жалға беру</a></li>
+
     <div class="user-menu" [class.open]="isOpen" (document:click)="handleClickOutside($event)">
       <button class="menu-btn" (click)="toggleDropdown($event)">
         <img src="/assets/user-icon.svg" alt="user" width="40" />
@@ -20,7 +22,7 @@
           <li><a routerLink="/register">Тіркелу</a></li>
           <li><a routerLink="/login">Кіру</a></li>
           <li class="divider"></li>
-          <li><a href="#">Өз үйіңді тірке</a></li>
+          <li><a [routerLink]="getCreateLink()">Өз үйіңді тірке</a></li>
           <li><a href="#">Өз пікіріңді қалдыр</a></li>
           <li><a href="#">Көмек</a></li>
         </ul>

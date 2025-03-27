@@ -1,16 +1,14 @@
 @use '../../../styles/variables' as *;
 @use 'sass:color';
 
-
 .footer {
-  background-color: $color-background;
+  background-color: $color-primary;
   padding: $spacing-unit * 4 0;
   font-family: $font-primary;
-  color: $color-black;
   border-top: 1px solid $color-gray-light;
 
   .container {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 $spacing-unit * 2;
   }
@@ -19,72 +17,68 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: $spacing-unit * 3;
+    padding-bottom: $spacing-unit * 4;
 
     @media (max-width: 768px) {
       flex-direction: column;
-      gap: $spacing-unit * 3;
+      align-items: flex-start;
     }
   }
 
-  &-logo img {
-    width: 150px;
+  &-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $color-white;
   }
 
-  &-links {
+  .footer-section {
     h4 {
-      font-size: $font-size-lg;
-      margin-bottom: $spacing-unit * 2;
-      color: $color-accent;
+      // font-size: $font-size-md;
+      color: $color-white;
+      margin-bottom: $spacing-unit;
     }
 
     ul {
       list-style: none;
       padding: 0;
+      margin: 0;
 
       li {
-        margin-bottom: $spacing-unit;
+        margin-bottom: calc($spacing-unit / 1.5);
 
         a {
           text-decoration: none;
-          color: $color-black;
-          transition: color 0.2s;
+          color: $color-white;
+          transition: color 0.2s ease;
 
           &:hover {
-            color: $color-accent;
+            color: color.adjust($color-white, $lightness: -10%);
           }
         }
       }
     }
-  }
 
-  &-social {
-    h4 {
-      font-size: $font-size-lg;
-      margin-bottom: $spacing-unit * 2;
-      color: $color-accent;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
+    .social-icons {
       display: flex;
       gap: $spacing-unit * 2;
 
       li a {
-        color: $color-primary;
-        transition: color 0.3s;
+        color: $color-white;
+        font-weight: 500;
 
         &:hover {
-          color: color.adjust($color-primary, $lightness: -10%);
+          color: color.adjust($color-white, $lightness: -10%);
         }
       }
     }
   }
 
   &-bottom {
-    margin-top: $spacing-unit * 3;
+    border-top: 1px solid $color-gray-light;
+    padding-top: $spacing-unit * 2;
     text-align: center;
     font-size: $font-size-sm;
-    color: $color-gray-dark;
+    color: $color-white;
   }
 }

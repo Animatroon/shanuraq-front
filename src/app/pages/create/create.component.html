@@ -1,0 +1,68 @@
+<section class="create-container">
+  <h1>Создание квартиры</h1>
+
+  <form (ngSubmit)="onSubmit()" #form="ngForm">
+    <div class="form-group">
+      <label>Город</label>
+      <input type="text" name="city" [(ngModel)]="city" required />
+    </div>
+
+    <div class="form-group">
+      <label>Адрес</label>
+      <input type="text" name="adress" [(ngModel)]="adress" required />
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Комнат</label>
+        <input type="number" name="roomCount" [(ngModel)]="roomCount" required />
+      </div>
+
+      <div class="form-group">
+        <label>Площадь (м²)</label>
+        <input type="number" name="meterSquare" [(ngModel)]="meterSquare" required />
+      </div>
+
+      <div class="form-group">
+        <label>Этаж</label>
+        <input type="number" name="floor" [(ngModel)]="floor" required />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Цена</label>
+      <input type="number" name="price" [(ngModel)]="price" required />
+    </div>
+
+    <div class="form-group">
+      <label>Описание</label>
+      <textarea name="description" [(ngModel)]="description"></textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Тип</label>
+        <select name="type" [(ngModel)]="type" required>
+          <option value="apartment">Квартира</option>
+          <option value="house">Дом</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Аренда</label>
+        <select name="rentals" [(ngModel)]="rentals" required>
+          <option value="monthly">Помесячно</option>
+          <option value="daily">Посуточно</option>
+          <option value="hourly">Почасово</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Изображения</label>
+      <input type="file" (change)="onFileChange($event)" multiple />
+    </div>
+
+    <button type="submit" class="submit-btn">Сохранить</button>
+  </form>
+</section>

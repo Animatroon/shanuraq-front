@@ -25,7 +25,12 @@ export const routes: Routes = [
     path: 'property/:id',
     loadComponent: () => import('./pages/property/property.component').then(c => c.PropertyComponent),
     title: 'Квартира'
-  },  
+  },
+  {
+    path: 'create',
+    loadComponent: () => import('./pages/create/create.component').then(m => m.CreateComponent),
+    title: 'Создание квартиры'
+  },    
   {
     path: '**',
     redirectTo: ''
