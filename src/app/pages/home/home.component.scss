@@ -1,22 +1,144 @@
 @use '../../../styles/variables' as *;
 
-.card {
-  background-color: $color-white;
-  border-radius: $border-radius;
-  overflow: hidden;
-  width: 300px;
+.hero {
+  height: 100vh;
+  width: 100%;
+  background: url('../../../assets/bg-main.png') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-white;
+  font-family: $font-primary;
+  text-align: center;
 
-  @include respond(md) {
+  .container {
+    max-width: 1280px;
     width: 100%;
+    padding: 0 $spacing-unit * 2;
   }
 
-  img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+  .hero-title {
+    font-size: 85px;
+    font-weight: 700;
+    margin-bottom: $spacing-unit * 2;
   }
 
-  .card-content {
-    padding: $spacing-unit * 2;
+  .hero-subtitle {
+    font-size: 30px;
+    margin-bottom: $spacing-unit * 4;
+    color: $color-primary;
+  }
+
+  .hero-button {
+    background-color: $color-accent;
+    color: $color-white;
+    padding: $spacing-unit * 1.5 $spacing-unit * 4;
+    font-size: 20px;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $color-button-hover;
+    }
+  }
+
+  .hero-login {
+    margin-top: $spacing-unit * 2;
+    font-size: $font-size-sm;
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.home-listings {
+  padding: $spacing-unit * 4 0;
+  background-color: $color-background;
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 $spacing-unit * 2;
+  }
+
+  .search-panel {
+    display: flex;
+    gap: $spacing-unit;
+    justify-content: center;
+    margin-bottom: $spacing-unit * 4;
+
+    input {
+      flex: 1;
+      padding: $spacing-unit;
+      border-radius: 10px;
+      border: 1px solid $color-gray-light;
+    }
+
+    button {
+      background-color: $color-accent;
+      color: $color-white;
+      border: none;
+      border-radius: 10px;
+      padding: $spacing-unit $spacing-unit * 2;
+      cursor: pointer;
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: $spacing-unit * 3;
+  }
+
+  .card {
+    background: $color-white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    .image {
+      height: 180px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .info {
+      padding: $spacing-unit * 2;
+
+      .rating {
+        font-weight: bold;
+        color: $color-accent;
+        margin-bottom: $spacing-unit;
+      }
+
+      h3 {
+        font-size: 16px;
+        color: $color-black;
+      }
+    }
+  }
+
+  .more {
+    text-align: center;
+    margin-top: $spacing-unit * 4;
+
+    .btn {
+      background-color: $color-primary;
+      color: white;
+      padding: $spacing-unit $spacing-unit * 2;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    }
   }
 }

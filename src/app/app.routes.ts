@@ -7,6 +7,21 @@ export const routes: Routes = [
     title: 'Home'
   },
   {
+    path: 'login',
+    loadComponent: () => import('./pages/auth/login/login.component').then(c => c.LoginComponent),
+    title: 'Login'
+  },
+  {
+    path: 'register',
+    loadComponent: () => import('./pages/auth/register/register.component').then(c => c.RegisterComponent),
+    title: 'Register'
+  },
+  {
+    path: 'about',
+    loadComponent: () => import('./pages/about/about.component').then(c => c.AboutComponent),
+    title: 'О нас'
+  },  
+  {
     path: '**',
     redirectTo: ''
   }

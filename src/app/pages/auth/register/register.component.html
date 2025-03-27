@@ -1,0 +1,32 @@
+<app-auth-layout>
+<div class="auth-page">
+  <div class="auth-card">
+    <h1>{{ role === 'Арендодатель' ? 'Регистрация арендодателя' : 'Регистрация арендатора' }}</h1>
+
+    <app-role-switch (roleChange)="onRoleChange($event)"></app-role-switch>
+
+    <form (submit)="onSubmit()" novalidate>
+      <label>Email</label>
+      <input type="email" [(ngModel)]="email" name="email" required />
+
+      <label>Телефон</label>
+      <input type="text" [(ngModel)]="phone" name="phone" required placeholder="например, 7771234567" />
+
+      <label>Пароль</label>
+      <input type="password" [(ngModel)]="password" name="password" required />
+
+      <ng-container *ngIf="role === 'Арендодатель'">
+        <label>ЭЦП-файл (.p12)</label>
+        <input type="file" (change)="onFileSelected($event)" />
+
+        <label>Пароль к ЭЦП</label>
+        <input type="password" [(ngModel)]="certPassword" name="certPassword" />
+      </ng-container>
+
+      <button type="submit">Зарегистрироваться</button>
+
+      <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+    </form>
+  </div>
+</div>
+</app-auth-layout>

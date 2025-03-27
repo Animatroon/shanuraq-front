@@ -1,0 +1,9 @@
+<div class="role-switch">
+  <button
+    *ngFor="let role of roles"
+    [class.active]="role === selected"
+    (click)="switch(role)"
+  >
+    {{ role }}
+  </button>
+</div>
