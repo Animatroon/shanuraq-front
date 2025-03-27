@@ -1,0 +1,19 @@
+<div class="review-section">
+  <h3>Оставить отзыв</h3>
+  <div class="stars">
+    <span *ngFor="let star of [1,2,3,4,5]" 
+          (click)="setRating(star)" 
+          [class.filled]="star <= rating">★</span>
+  </div>
+  <textarea [(ngModel)]="comment" placeholder="Ваш отзыв"></textarea>
+  <button (click)="submitReview()">Отправить</button>
+
+  <p class="success" *ngIf="success">{{ success }}</p>
+  <p class="error" *ngIf="error">{{ error }}</p>
+
+  <h3>Отзывы</h3>
+  <div *ngFor="let r of reviews" class="review-card">
+    <div class="rating">★ {{ r.rating }}</div>
+    <p>{{ r.commet }}</p>
+  </div>
+</div>

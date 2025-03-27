@@ -1,0 +1,28 @@
+<div class="report-box">
+  <button class="report-toggle" (click)="toggleForm()">
+    {{ showForm ? 'Закрыть' : 'Пожаловаться' }}
+  </button>
+
+  <div *ngIf="showForm" class="form">
+    <label>
+      Причина:
+      <select [(ngModel)]="complaintFor">
+        <option value="Другое">Просрочки платежей</option>
+        <option value="Порча имущества">Порча имущества</option>
+        <option value="Нарушение договора">Нарушение договора</option>
+        <option value="Жалобы соседей">Жалобы соседей</option>
+        <option value="Оскорбления">Оскорбления</option>
+      </select>
+    </label>
+
+    <label>
+      Комментарий:
+      <textarea [(ngModel)]="comment" rows="4"></textarea>
+    </label>
+
+    <button class="submit" (click)="submitReport()">Отправить жалобу</button>
+
+    <p class="success" *ngIf="success">{{ success }}</p>
+    <p class="error" *ngIf="error">{{ error }}</p>
+  </div>
+</div>

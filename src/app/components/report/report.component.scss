@@ -1,0 +1,65 @@
+@use '../../../styles/variables' as *;
+@use 'sass:color';
+
+.report-box {
+  margin-top: 24px;
+
+  .report-toggle {
+    background-color: $color-primary;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      background-color: color.adjust($color-primary, $lightness: -10%);
+    }
+  }
+
+  .form {
+    margin-top: 16px;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background: #fff;
+    max-width: 500px;
+
+    label {
+      display: block;
+      margin-bottom: 12px;
+
+      select,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 4px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+      }
+    }
+
+    .submit {
+      background-color: $color-primary;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+
+      &:hover {
+        background-color: color.adjust($color-primary, $lightness: -10%);
+      }
+    }
+
+    .success {
+      margin-top: 12px;
+      color: green;
+    }
+
+    .error {
+      margin-top: 12px;
+      color: red;
+    }
+  }
+}

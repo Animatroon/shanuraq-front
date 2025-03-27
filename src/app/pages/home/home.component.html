@@ -12,8 +12,12 @@
       <button>Искать</button>
     </div>
 
-    <div class="grid">
-      <div class="card" *ngFor="let apt of apartments">
+    <div class="houses">
+      <div
+        class="card"
+        *ngFor="let apt of apartments"
+        [routerLink]="['/property', apt.id]"
+      >
         <div class="image">
           <img [src]="apt.image" alt="Apartment" />
         </div>
@@ -25,6 +29,7 @@
         </div>
       </div>
     </div>
+    
 
     <div class="more">
       <p>Іздеуді жалғастыру...</p>

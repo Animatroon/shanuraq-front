@@ -1,15 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ReportComponent } from '../../components/report/report.component';
+import { ReviewComponent } from '../../components/review/review.component';
 
 @Component({
   selector: 'app-property',
-  imports: [CommonModule],
+  imports: [CommonModule, ReportComponent, ReviewComponent],
   templateUrl: './property.component.html',
   styleUrl: './property.component.scss'
 })
 export class PropertyComponent {
   property: any;
+  tenantsId = '65f39591fdc4a0b857f76432'; 
 
   mockData = [
     {
@@ -42,8 +45,25 @@ export class PropertyComponent {
       reviews: [
         { stars: 5, text: 'Современно и удобно!', anon: true }
       ]
+    },
+    {
+      id: '3',
+      title: 'Тихий домик у озера',
+      image: '/assets/apart-3.jpg',
+      owner: {
+        name: 'Нурлан',
+        avatar: '/assets/user-icon.svg',
+        verified: false
+      },
+      description: 'Идеально для уединённого отдыха за городом.',
+      rating: 4.8,
+      reviews: [
+        { stars: 5, text: 'Расслабляющее место, обязательно вернусь!', anon: true },
+        { stars: 4, text: 'Красиво, но дорога была сложной.', anon: true }
+      ]
     }
   ];
+  
 
   constructor(private route: ActivatedRoute) {
     const id = this.route.snapshot.paramMap.get('id');

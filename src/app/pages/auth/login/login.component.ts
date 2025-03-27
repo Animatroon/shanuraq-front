@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import axios from 'axios';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RoleSwitchComponent } from '../shared/role-switch.component';
 import { AuthLayoutComponent } from '../auth-layout/auth-layout.component';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -18,30 +18,29 @@ export class LoginComponent {
   role = 'Арендатор';
   loginError = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private router: Router) {}
+
+  async onLogin() {
+    const endpoint = this.role === 'Арендодатель'
+      ? 'http://localhost:4000/api/Landlords/login'
+      : 'http://localhost:4000/api/Tenants/login';
+
+    try {
+      const response = await axios.post(endpoint, {
+        login: this.login,
+        password: this.password
+      }, {
+        withCredentials: true
+      });
+
+      this.loginError = '';
+      this.router.navigateByUrl('/');
+    } catch (err: any) {
+      this.loginError = err?.response?.data?.message || 'Ошибка входа';
+    }
+  }
 
   onRoleChange(role: string) {
     this.role = role;
-  }
-
-  onLogin() {
-    const endpoint = this.role === 'Арендодатель'
-      ? '/api/landlord/login'
-      : '/api/tenant/login';
-
-      this.http.post(endpoint, {
-        login: this.login,
-        password: this.password
-      }, { withCredentials: true }) 
-      .subscribe({
-        next: () => {
-          this.loginError = '';
-          this.router.navigateByUrl('/');
-        },
-        error: (err) => {
-          this.loginError = err.error?.message || 'Ошибка входа';
-        },
-      });
-      
   }
 }
