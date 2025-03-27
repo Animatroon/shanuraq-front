@@ -1,0 +1,83 @@
+@use '../../../styles/variables' as *;
+
+.property {
+  background: $color-background;
+  padding: 48px 0;
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  h1 {
+    font-size: 28px;
+    color: $color-primary;
+  }
+
+  .main-img {
+    width: 100%;
+    border-radius: 14px;
+    margin: 20px 0;
+  }
+
+  .owner-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+
+    img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+    }
+
+    .verified {
+      font-size: 14px;
+      color: green;
+    }
+  }
+
+  .description {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .rating {
+    font-size: 20px;
+    color: #f39c12;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .reviews {
+    .review {
+      background: white;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+
+      .stars {
+        color: #f39c12;
+        font-size: 16px;
+      }
+
+      .anon {
+        font-size: 14px;
+        color: #777;
+      }
+    }
+  }
+
+  .report {
+    margin-top: 20px;
+    background: $color-primary;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+}

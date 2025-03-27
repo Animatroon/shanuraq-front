@@ -1,0 +1,32 @@
+<section class="property" *ngIf="property">
+  <div class="container">
+    <h1>{{ property.title }}</h1>
+
+    <img [src]="property.image" alt="Фото квартиры" class="main-img" />
+
+    <div class="owner-card">
+      <img [src]="property.owner.avatar" alt="Owner" />
+      <div>
+        <p><strong>{{ property.owner.name }}</strong></p>
+        <span class="verified">✔️ Верифицирован</span>
+      </div>
+    </div>
+
+    <p class="description">{{ property.description }}</p>
+
+    <div class="rating">
+      ★ {{ property.rating }}
+    </div>
+
+    <h3>Анонимные отзывы</h3>
+    <div class="reviews">
+      <div class="review" *ngFor="let r of property.reviews">
+        <div class="stars">{{ '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars) }}</div>
+        <p>{{ r.text }}</p>
+        <span class="anon">Аноним</span>
+      </div>
+    </div>
+
+    <button class="report">Пожаловаться</button>
+  </div>
+</section>

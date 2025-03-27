@@ -22,6 +22,11 @@ export const routes: Routes = [
     title: 'О нас'
   },  
   {
+    path: 'property/:id',
+    loadComponent: () => import('./pages/property/property.component').then(c => c.PropertyComponent),
+    title: 'Квартира'
+  },  
+  {
     path: '**',
     redirectTo: ''
   }

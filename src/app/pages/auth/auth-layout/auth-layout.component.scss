@@ -1,19 +1,18 @@
 @use '../../../../styles/variables' as *;
 
 .auth-layout {
-  background-color: $color-background;
+  background-color: #f8eee2; 
   min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: $spacing-unit * 4;
-}
+  justify-content: center;
 
-.auth-container {
-  background-color: $color-white;
-  padding: $spacing-unit * 4;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 440px;
+
+  .auth-container {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 32px 16px;
+  }
 }

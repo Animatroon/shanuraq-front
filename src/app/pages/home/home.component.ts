@@ -1,33 +1,38 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-// import { AnimateOnScrollDirective } from '../../derectives/ animate-on-scroll.directive';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  constructor(private router: Router) {}
+
   apartments = [
     {
-      image: '/assets/apts/apt1.jpg',
-      title: 'Уютная квартира в Алматы',
-      rating: 4.91
+      id: 1,
+      title: '2-комнатная в центре',
+      rating: 4.8,
+      image: 'assets/apart-1.jpg',
     },
     {
-      image: '/assets/apts/apt2.jpg',
-      title: 'Квартира возле Арбата',
-      rating: 4.85
+      id: 2,
+      title: 'Уютная студия у метро',
+      rating: 4.5,
+      image: 'assets/apart-2.jpg',
     },
     {
-      image: '/assets/apts/apt3.jpg',
-      title: 'Апартаменты с видом на горы',
-      rating: 5.0
-    },
-    // ...
+      id: 3,
+      title: 'С видом на горы',
+      rating: 4.9,
+      image: 'assets/apart-3.jpg',
+    }
   ];
+
+  goToProperty(id: number) {
+    this.router.navigate(['/property', id]);
+  }
 }
-
-
