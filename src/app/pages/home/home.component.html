@@ -5,7 +5,6 @@
     <button class="hero-button">Тіркелу</button>
   </div>
 </section>
-
 <section class="home-listings">
   <div class="container">
     <div class="search-panel">
@@ -14,11 +13,7 @@
     </div>
 
     <div class="grid">
-      <div
-        class="card"
-        *ngFor="let apt of apartments"
-        (click)="goToProperty(apt.id)"
-      >
+      <div class="card" *ngFor="let apt of apartments">
         <div class="image">
           <img [src]="apt.image" alt="Apartment" />
         </div>
@@ -37,3 +32,4 @@
     </div>
   </div>
 </section>
+
